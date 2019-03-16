@@ -1,0 +1,27 @@
+{
+  "name": "next-js-bitcoin-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Riley-Brown/next-js-bitcoin-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Riley-Brown/next-js-bitcoin-api/issues"
+  },
+  "homepage": "https://github.com/Riley-Brown/next-js-bitcoin-api#readme",
+  "dependencies": {
+    "next": "^8.0.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
+}
