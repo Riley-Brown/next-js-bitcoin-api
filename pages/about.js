@@ -1,11 +1,11 @@
-import Link from 'next/link';
-import Navbar from '../components/Navbar';
+import Layout from '../components/Layout';
 const About = () => (
-  <div>
-    <Navbar />
-    <h1>About my cool Next.js app</h1>
-    <p>App to view bitcoin prices using Next.js</p>
-  </div>
+  <Layout>
+    <div>
+      <h1>About my cool Next.js app</h1>
+      <p>App to view bitcoin prices using Next.js</p>
+    </div>
+  </Layout>
 );
 
 export default About;
