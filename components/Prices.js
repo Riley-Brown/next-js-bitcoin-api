@@ -65,17 +65,20 @@ class Prices extends React.Component {
               </span>
               <strong>{this.state.price}</strong>
             </li>
-            <li className="list-group-item">
-              <form onChange={this.onChange}>
-                <span className="mr-1">Change Currency: </span>
-                <select name="currency" id="">
-                  <option value="USD">USD</option>
-                  <option value="GBP">GBP</option>
-                  <option value="EUR">EUR</option>
-                </select>
-              </form>
-            </li>
           </ul>
+          {/* <form className="form-control" onChange={this.onChange}> */}
+          {/* <span className="mr-1">Change Currency: </span> */}
+          <select
+            name="currency"
+            id=""
+            className="form-control mt-3"
+            onChange={this.onChange}
+          >
+            <option value="USD">USD</option>
+            <option value="GBP">GBP</option>
+            <option value="EUR">EUR</option>
+          </select>
+          {/* </form> */}
         </div>
       );
     } else {
