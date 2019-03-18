@@ -33,7 +33,6 @@ class Prices extends React.Component {
         });
         console.log(api.bpi);
       });
-
     console.log('running');
     // this.setState({
     //   price: '1234'
@@ -52,6 +51,16 @@ class Prices extends React.Component {
                 {this.state.currencyCode}
               </span>
               <strong>{this.state.price}</strong>
+            </li>
+            <li className="list-group-item">
+              <form action="">
+                <span className="mr-1">Change Currency: </span>
+                <select name="currency" id="">
+                  <option value="USD">USD</option>
+                  <option value="GBP">GBP</option>
+                  <option value="EUR">EUR</option>
+                </select>
+              </form>
             </li>
           </ul>
         </div>
