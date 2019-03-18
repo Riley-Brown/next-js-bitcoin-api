@@ -13,7 +13,7 @@ class Prices extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(this.getBitcoinData, 15000);
+    setInterval(this.getBitcoinData, 30000);
     this.getBitcoinData();
   }
   componentWillUnmount() {
@@ -21,22 +21,35 @@ class Prices extends React.Component {
   }
 
   getBitcoinData = () => {
+    console.log('running');
+    fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(function(response) {
+        return response.json();
+      })
+      .then(api => {
+        let currentCurrency = this.state.currency;
+        this.setState({
+          price: api.bpi[currentCurrency].rate,
+          description: api.bpi[currentCurrency].description,
+          currencyCode: api.bpi[currentCurrency].code
+        });
+      });
+  };
+  onChange = e => {
+    e.preventDefault();
+    let target = e.target.value;
     fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
       .then(function(response) {
         return response.json();
       })
       .then(api => {
         this.setState({
-          price: api.bpi.USD.rate,
-          description: api.bpi.USD.description,
-          currencyCode: api.bpi.USD.code
+          price: api.bpi[target].rate,
+          description: api.bpi[target].description,
+          currencyCode: api.bpi[target].code,
+          currency: target
         });
-        console.log(api.bpi);
       });
-    console.log('running');
-    // this.setState({
-    //   price: '1234'
-    // });
   };
 
   render() {
@@ -53,7 +66,7 @@ class Prices extends React.Component {
               <strong>{this.state.price}</strong>
             </li>
             <li className="list-group-item">
-              <form action="">
+              <form onChange={this.onChange}>
                 <span className="mr-1">Change Currency: </span>
                 <select name="currency" id="">
                   <option value="USD">USD</option>
